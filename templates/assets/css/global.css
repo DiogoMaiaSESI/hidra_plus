@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    font-size: 62.5%;
+    --black_background: rgba(1, 1, 1, 1);
+    --gray_background : rgba(217, 217, 217, 1);
+    --white: rgba(255, 255, 255, 1);
+    --lightblue1: rgba(120, 220, 245, 1);
+    --lightblue2: rgba(56, 209, 247, 1);
+    --black: rgba(0, 0, 0, 1);
+    --yellow: rgba(209, 212, 63, 1);
+    --purple: rgba(101, 73, 245, 1);
+    --lilac: rgba(214, 198, 243, 1);
+    --darkpurple: rgba(52, 0, 84, 1);
+    --font: 'Montserrat';
+}
