@@ -1,1 +1,136 @@
 @import "global.css";
+body {
+    background-color: #010101; 
+    color: #FFFFFF; 
+    font-family: 'Poppins', sans-serif; 
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+
+.dashboard-container {
+    width: 100%;
+    max-width: 100%; 
+    padding: 20px;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    height: 5.0rem;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #8A2BE2;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 1.7rem;
+}
+
+.user-email {
+    font-size: 1.5rem;
+    color: #b0b0b0; 
+}
+
+.logo-image {
+    width: 10.0rem; 
+    height: auto;
+    margin-top: 3.0rem;
+}
+
+
+.title-section {
+    text-align: center;
+    margin-bottom: 6.0rem;
+    margin-top: -5.0rem;
+    align-self: center;
+    
+}
+
+.title-section h1 {
+    font-size: 5.0rem;
+    margin: 0;
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+
+
+.title-section h1::after {
+    content: '';
+    display: block;
+    width: 45.0rem;
+    height: 2px;
+    background-color: #FFFFFF;
+    margin: 10px auto 0;
+}
+
+.title-section p {
+    font-size: 2.5rem;
+    color: #dcdcdc;
+    margin-top: 2.0rem;
+}
+
+.progress-card {
+    margin-bottom: 40px;
+}
+
+.progress-card h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.status-section {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+.status-label {
+    font-size: 2.0rem;
+}
+
+.status-buttons {
+    display: flex;
+    gap: 10px; 
+}
+
+
+.status-btn {
+    background-color: #8A2BE2; 
+    color: #FFFFFF;
+    border: none;
+    padding: 0px 20px;
+    border-radius: 20px; 
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    cursor: pointer;
+    height: 3.0rem;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    
+}
+
+.status-btn:hover {
+    background-color: #7a1fcf; 
+}
