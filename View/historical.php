@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../templates/assets/css/historical.css">
 </head>
 <body>
-
+    <figure><img src="../templates/Linha_Lateral.png" alt=""></figure>
     <div class="dashboard-container">
         <header class="main-header">
             <div class="user-info">
@@ -54,8 +54,30 @@
                 </div>
             </div>
         </section>
+        <section class="progress-card">
+            <h2>Meta Semanal atual Anterior: xx Litros</h2>
+            <div class="status-section">
+                <span class="status-label">Status:</span>
+                <div class="status-buttons">
+                    <button class="status-btn">Concluída</button>
+                    <button class="status-btn">Não Concluída</button>
+                    <button class="status-btn">Em andamento</button>
+                </div>
+            </div>
+        </section>
 
     </div>
+    
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 
 </body>
 </html>

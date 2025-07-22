@@ -4,26 +4,24 @@ body {
     color: #FFFFFF; 
     font-family: 'Poppins', sans-serif; 
     margin: 0;
-    padding: 20px;
     display: flex;
-    justify-content: center;
     align-items: flex-start;
-    min-height: 100vh;
+    width: 100%;
 }
 
 
 .dashboard-container {
     width: 100%;
-    max-width: 900px; 
+    max-width: 100%; 
     padding: 20px;
 }
 
 
-.main-header {
+header {
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    margin-bottom: 40px;
+    height: 5.0rem;
 }
 
 .user-info {
@@ -46,45 +44,50 @@ body {
 
 .user-name {
     font-weight: 600;
-    font-size: 1.1em;
+    font-size: 1.7rem;
 }
 
 .user-email {
-    font-size: 0.9em;
+    font-size: 1.5rem;
     color: #b0b0b0; 
 }
 
 .logo-image {
-    width: 100px; 
+    width: 10.0rem; 
     height: auto;
+    margin-top: 3.0rem;
 }
 
 
 .title-section {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 6.0rem;
+    margin-top: -5.0rem;
+    align-self: center;
+    
 }
 
 .title-section h1 {
-    font-size: 2.5em;
+    font-size: 5.0rem;
     margin: 0;
     letter-spacing: 2px;
+    font-weight: 100;
 }
 
 
 .title-section h1::after {
     content: '';
     display: block;
-    width: 150px;
+    width: 45.0rem;
     height: 2px;
     background-color: #FFFFFF;
     margin: 10px auto 0;
 }
 
 .title-section p {
-    font-size: 1.2em;
+    font-size: 2.5rem;
     color: #dcdcdc;
-    margin-top: 15px;
+    margin-top: 2.0rem;
 }
 
 .progress-card {
@@ -92,7 +95,7 @@ body {
 }
 
 .progress-card h2 {
-    font-size: 1.4em;
+    font-size: 2.5rem;
     font-weight: 400;
     margin-bottom: 20px;
 }
@@ -104,7 +107,7 @@ body {
 }
 
 .status-label {
-    font-size: 1.2em;
+    font-size: 2.0rem;
 }
 
 .status-buttons {
@@ -117,12 +120,15 @@ body {
     background-color: #8A2BE2; 
     color: #FFFFFF;
     border: none;
-    padding: 10px 20px;
+    padding: 0px 20px;
     border-radius: 20px; 
     font-family: 'Poppins', sans-serif;
-    font-size: 0.9em;
+    font-size: 1.5rem;
     cursor: pointer;
-    transition: background-color 0.3s ease; 
+    height: 3.0rem;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    
 }
 
 .status-btn:hover {
