@@ -17,7 +17,6 @@
         <header class="main-header">
             <div class="user-info">
                 <img src="../templates/Perfil.png" alt="Ícone do Usuário" class="user-icon">
-                <!-- Troque pelo link do seu ícone -->
                 <div class="user-details">
                     <span class="user-name">Nome</span>
                     <span class="user-email">email@example.com</span>
@@ -25,7 +24,6 @@
             </div>
             <div class="logo-container">
                 <img src="../templates/Logo_Hidra.png" alt="Logo Hidra+" class="logo-image">
-                <!-- Troque pelo link da sua logo -->
             </div>
         </header>
 
@@ -44,7 +42,7 @@
                 <h2>Cálculo</h2>
                 <p>Informe o seu peso:</p>
                 <input type="number">
-                <button>
+                <button>Calcular
 
                 </button>
             </div>

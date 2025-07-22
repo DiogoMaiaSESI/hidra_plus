@@ -99,7 +99,7 @@ header {
     text-align: center;
     align-self: center;
     justify-content: center;
-    width: 70%;
+    width: 90%;
     
 }
 
@@ -154,7 +154,34 @@ header {
 }
 .Caixa_Superior h2 {
     font-size: 2.5rem;
-    margin-bottom: 10.0rem;
+    margin-bottom: 2.0rem;
+}
+.Caixa_Superior p {
+    font-size: 2.0rem;
+    margin-bottom: 0.7rem;
+    margin-left: 5.0rem;
+    text-align: start;
+    width: 100%;
+    justify-content: center;
+    font-weight: 600;
+}
+.Caixa_Superior input {
+    width: 90%;
+    height: 3.0rem;
+    font-size: 2.0rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 1.0rem;
+    margin-bottom: 2.0rem;
+}
+.Caixa_Superior button {
+    width: 30%;
+    height: 3.0rem;
+    font-size: 2.0rem;
+    color: black;
+    border: none;
+    border-radius: 1.0rem;
+    cursor: pointer;
 }
 .Caixa_Inferior {
     display: flex;
@@ -165,4 +192,9 @@ header {
     height: 60%;
     background-color: #38D1F7;
     border-radius: 1.0rem;
+}
+.Caixa_Inferior h2 {
+    font-size: 2.5rem;
+    margin-bottom: 8.0rem;
+    color: black;
 }
