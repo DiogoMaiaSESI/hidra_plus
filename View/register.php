@@ -1,5 +1,30 @@
 <?php
+session_start();
+require_once '../Controller/UserController.php';
 
+$userController = new UserController();
+$errors = [];
+$success = '';
+
+// Processa o formulário quando enviado via POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $fullname = $_POST['name'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $confirmPassword = $_POST['confirm_password'] ?? '';
+
+    $result = $userController->register($fullname, $email, $password, $confirmPassword);
+
+    if ($result['success']) {
+        $success = $result['message'];
+        // Opcional: redirecionar para página de login após sucesso
+        // header('Location: login.php');
+        // exit;
+    } else {
+        $errors = $result['errors'];
+    }
+    
+}
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +68,18 @@
                     <input type="password" id="confirm_password" name="confirm_password" required>
                 </div>
                 <button type="submit">Cadastrar</button>
+                <?php if (!empty($errors)): ?>
+                    <div class="error-messages">
+                        <?php foreach ($errors as $error): ?>
+                            <p><?php echo $error; ?></p>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (!empty($success)): ?>
+                    <div class="success-message">
+                        <p><?php echo $success; ?></p>
+                    </div>
+                <?php endif; ?>
                 <p>Já tem uma conta? <a href="../index.php">Login</a></p>
             </form>
         </div>
