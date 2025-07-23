@@ -16,14 +16,14 @@
     <div class="dashboard-container">
         <header class="main-header">
             <div class="user-info">
-                <img src="../templates/Perfil.png" alt="Ícone do Usuário" class="user-icon">
+                <img src="../templates/assets/img/Perfil.png" alt="Ícone do Usuário" class="user-icon">
                 <div class="user-details">
                     <span class="user-name">Nome</span>
                     <span class="user-email">email@example.com</span>
                 </div>
             </div>
             <div class="logo-container">
-                <img src="../templates/Logo_Hidra.png" alt="Logo Hidra+" class="logo-image">
+                <img src="../templates/assets/img/Logo_Hidra.png" alt="Logo Hidra+" class="logo-image">
             </div>
         </header>
 
@@ -42,47 +42,16 @@
                 <h2>Cálculo</h2>
                 <p>Informe o seu peso:</p>
                 <input type="number">
-                <button>Calcular
-
-                </button>
+                <button>Calcular</button>
             </div>
             <div class="Caixa_Inferior">
                 <h2>Resultado</h2>
-                
-
             </div>
         </div>
-
     </div>
-<figure class="Linha" ><img src="../templates/Linha_Lateral.png" alt="" class="Linha" ></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <figure class="Linha">
+        <img src="../templates/assets/img/Linha_Lateral.png" alt="Vertical decorative line with a blue gradient, used as a visual divider between sections on a clean and modern web dashboard interface" class="Linha">
+    </figure>
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>
@@ -92,6 +61,9 @@
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <script>
+        console.log(window.innerWidth);
     </script>
 
 </body>
