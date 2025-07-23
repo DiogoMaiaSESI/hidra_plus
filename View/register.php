@@ -1,5 +1,19 @@
 <?php
+require_once('../vendor/autoload.php');
 
+use Controller\UserController;
+
+$user = new UserController();
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['user_fullname'],$_POST['email'],$_POST['password'])) {
+        $user_fullname = $_POST['user_fullname'];
+        $user_email = $_POST['email'];
+        $user_password = $_POST['password'];
+        $user->registerUser($user_fullname,$user_email, $user_password);
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +38,7 @@
                     <img src="../templates/assets/img/stars.png" alt="Five yellow stars evenly spaced in a row on a transparent background, representing a five star rating, conveying a positive and welcoming tone">
                 </figure>                 
             </div>
-            <form>
+            <form method="POST">
                 <h2 class="formTitle">CADASTRO</h2>
                 <div class="groupLabel">
                     <label for="name">Nome</label>
