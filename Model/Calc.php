@@ -13,9 +13,9 @@ class waterCalc {
         $this->db = Connection::getInstance();
     }
 
-    public function CreateWei($weight,$result) {
+    public function tabWater($weight,$result) {
         try {
-           $sql = "INSERT INTO imcs (weight, result, created_at)
+           $sql = "INSERT INTO watercalc (weight, result, created_at)
            VALUES (:weight, :result, NOW())"; 
 
            $stmt = $this->db->prepare($sql);
