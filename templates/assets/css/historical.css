@@ -14,6 +14,38 @@ body {
     width: 100%;
     max-width: 100%; 
     padding: 20px;
+    
+}
+.Conteudo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:start;
+    width: 100%;
+}
+.Dicas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    padding: 2.0rem;
+    background-color: var(--lightblue2);
+    color: var(--black);
+    margin-right: 25.0rem;
+    border-radius: 1.0rem;
+}
+.Dicas h2 {
+    font-size: 3.5rem;
+    margin-bottom: 2.0rem;
+    color: #FFFFFF; 
+    color: var(--black);
+}
+.tips-list {
+    display: flex;
+    flex-direction: column;
+    font-size: 2.5rem;
+    gap: 2.0rem;
 }
 
 
@@ -27,7 +59,8 @@ header {
 .user-info {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 1.5rem;
+    margin-left: 2.0rem;
 }
 
 .user-icon {
@@ -44,11 +77,11 @@ header {
 
 .user-name {
     font-weight: 600;
-    font-size: 1.7rem;
+    font-size: 2.0rem;
 }
 
 .user-email {
-    font-size: 1.5rem;
+    font-size: 2.0rem;
     color: #b0b0b0; 
 }
 
@@ -89,9 +122,13 @@ header {
     color: #dcdcdc;
     margin-top: 2.0rem;
 }
+.cards {
+    width: 60%;
+    margin-left: 2.5rem;
+}
 
 .progress-card {
-    margin-bottom: 40px;
+    margin-bottom: 7.0rem;
 }
 
 .progress-card h2 {
@@ -133,4 +170,9 @@ header {
 
 .status-btn:hover {
     background-color: #7a1fcf; 
+}
+.Linha {
+    height: 91.7rem;
+    width: 5.0rem;
+    overflow-y: auto;
 }
