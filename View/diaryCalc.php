@@ -1,3 +1,4 @@
+
 <?php
 
 ?>
@@ -34,15 +35,17 @@
             <div class="title-section">
                 <h1>HIDRA+</h1>
                 <p>Calcule a sua meta diária de consumo de água. </p>
-                <button class="Monitoramento">Monitoramento</button>
+                <button type="submit" class="Monitoramento">Monitoramento</button>
             </div>
         </div>
         <div class="direita">
+            <form method="POST" action="diaryCalc.php">
             <div class="Caixa_Superior">
                 <h2>Cálculo</h2>
                 <p>Informe o seu peso:</p>
-                <input type="number">
-                <button>Calcular</button>
+                <input type="number" name="weight" placeholder="Ex: 50.3" id="userWeight">
+                <button type="submit">Calcular</button>
+        </form>
             </div>
             <div class="Caixa_Inferior">
                 <h2>Resultado</h2>
