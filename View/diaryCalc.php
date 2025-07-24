@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="title-section">
                     <h1>HIDRA+</h1>
                     <p>Calcule a sua meta diária de consumo de água. </p>
-                    <button type="submit" class="Monitoramento">Monitoramento</button>
+                    <button class="Monitoramento" id="Monitoramento">Monitoramento</button>
                 </div>
             </div>
             <div class="direita">
@@ -107,5 +107,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <script>
             console.log(window.innerWidth);
         </script>
+        <script src="../templates/assets/js/diaryCalc.js"></script>
     </body>
 </html>

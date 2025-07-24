@@ -45,7 +45,7 @@ class WaterCalc {
     }
     public function getWaterLastWeek(){
         try{
-            $sql = "SELECT result FROM watercalc ORDER BY id DESC LIMIT 1 OFFSET 1";
+            $sql = "SELECT result FROM watercalc ORDER BY id DESC LIMIT 1 OFFSET 7";
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
             return $stmt->fetchColumn();

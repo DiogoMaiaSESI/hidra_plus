@@ -47,14 +47,14 @@ $userWaterInfoLastWeek = $waterController->getUserWaterLastWeek();
 
                 <section class="progress-card">
                     <h2>Meta diária: <?php
-                        echo $userWaterInfo;
+                        echo $userWaterInfo*1;
                     ?> Litros</h2>
                     <div class="status-section">
                         <span class="status-label">Status:</span>
                         <div class="status-buttons">
-                            <button class="status-btn">Concluída</button>
-                            <button class="status-btn">Não Concluída</button>
-                            <button class="status-btn">Em andamento</button>
+                            <button class="status-btn" id="btnstatus1">Concluída</button>
+                            <button class="status-btn" id="btnstatus2">Não Concluída</button>
+                            <button class="status-btn" id="btnstatus3">Em andamento</button>
                         </div>
                     </div>
                 </section>
@@ -66,22 +66,22 @@ $userWaterInfoLastWeek = $waterController->getUserWaterLastWeek();
                     <div class="status-section">
                         <span class="status-label">Status:</span>
                         <div class="status-buttons">
-                            <button class="status-btn">Concluída</button>
-                            <button class="status-btn">Não Concluída</button>
-                            <button class="status-btn">Em andamento</button>
+                            <button class="status-btn" id="btnstatus4">Concluída</button>
+                            <button class="status-btn" id="btnstatus5">Não Concluída</button>
+                            <button class="status-btn" id="btnstatus6">Em andamento</button>
                         </div>
                     </div>
                 </section>
                 <section class="progress-card">
                     <h2>Meta Semanal atual Anterior: <?php
-                        echo $userWaterInfoLastWeek;
+                        echo $userWaterInfoLastWeek*7;
                     ?> Litros</h2>
                     <div class="status-section">
                         <span class="status-label">Status:</span>
                         <div class="status-buttons">
-                            <button class="status-btn">Concluída</button>
-                            <button class="status-btn">Não Concluída</button>
-                            <button class="status-btn">Em andamento</button>
+                            <button class="status-btn" id="btnstatus7">Concluída</button>
+                            <button class="status-btn" id="btnstatus8">Não Concluída</button>
+                            <button class="status-btn" id="btnstatus9">Em andamento</button>
                         </div>
                     </div>
                 </section>
@@ -111,7 +111,7 @@ $userWaterInfoLastWeek = $waterController->getUserWaterLastWeek();
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
-
+    <script src="../templates/assets/js/historical.js"></script>
 </body>
 
 </html>
