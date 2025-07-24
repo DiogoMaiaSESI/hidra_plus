@@ -30,8 +30,8 @@ body {
 }
 
 .logotipo img {
-    width: 20.0rem;
-    height: 20.0rem;
+    width: 14.0rem;
+    height: 14.0rem;
     right: 0;
     top: 0;
 }
@@ -51,70 +51,77 @@ body {
 }
 
 .linha {
-    width: 34.0rem;
+    width: 26.0rem;
     height: 0.3rem;
     background-color: var(--white);
     margin-bottom: 4.4rem;
 }
 
 h1 {
-    font-size: 7.0rem;
+    font-size: 4.0rem;
     font-weight: normal;
 }
 
 .texto-informacoes {
-    font-size: 4.0rem;
+    font-size: 3.0rem;
     text-align: justify;
-    margin-bottom: 15.2rem;
+    margin-bottom: 10.2rem;
     font-weight: 500;
+    width: 80%;
 }
 
 .estrelas img {
-    width: 32.9rem;
+    width: 28.9rem;
+    margin-bottom: 4.4rem;
 }
 
 form {
+    width: 45.3rem;
+    height: 45.3rem;
     background-color: var(--lightblue2);
     border-radius: 1.5rem;
     padding: 1.2rem 2.4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-right: 15.0rem;
 }
 
 .grupo-campo {
     display: flex;
     flex-direction: column;
     align-items: baseline;
-    margin-bottom: 3.8rem;
+    margin-bottom: 2.5rem;
 }
 
 .titulo-formulario {
-    font-size: 3.6rem;
+    font-size: 2.2rem;
     color: var(--black);
     font-weight: 600;
-    margin-top: 2.7rem;
+    margin-top: 1.0rem;
 }
 
 form label {
-    font-size: 2.4rem;
+    font-size: 1.6rem;
     color: var(--black);
     font-weight: 600;
 }
 
 form input {
-    width: 50.3rem;
-    height: 6.5rem;
+    width: 42.3rem;
+    height: 3.0rem;
     background-color: var(--white);
     border-style: none;
     border-radius: 1.5rem;
+    padding-left: 1.0rem; 
+    box-sizing: border-box; 
 }
 
 form button {
-    font-size: 2.4rem;
+    font-size: 2.0rem;
     color: var(--black);
-    width: 17.8rem;
-    height: 4.3rem;
+    width: 16.8rem;
+    height: 2.8rem;
     background-color: var(--white);
     border-radius: 1.5rem;
     border-style: none;
@@ -123,7 +130,7 @@ form button {
 
 form p {
     color: var(--black);
-    margin-top: 1.2rem;
+    margin-top: 1.0rem;
 }
 
 form p, form a {

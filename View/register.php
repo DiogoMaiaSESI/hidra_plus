@@ -6,6 +6,7 @@ require_once __DIR__ . "/../Config/configuration.php";
 require_once __DIR__ . "/../Controller/UserController.php";
 
 $userController = new UserController();
+
 $errors = [];
 $success = "";
 
@@ -21,13 +22,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } elseif ($password !== $confirm_password) {
         $errors[] = "As senhas não coincidem.";
     } else {
-        $result = $userController->createUser($user_fullname, $email, $password);
+        try {
+            $result = $userController->createUser($user_fullname, $email, $password);
 
-        if ($result) {
-            $success = "Usuário cadastrado com sucesso!";
-            // Redirecionar ou exibir mensagem de sucesso
-        } else {
-            $errors[] = "Erro ao cadastrar usuário. Tente novamente.";
+            if ($result) {
+                $success = "Usuário cadastrado com sucesso! Redirecionando para o login...";
+                header("Location: ../index.php"); // Redirecionar para a página de login
+                exit();
+            } else {
+                $errors[] = "Erro ao cadastrar usuário. Tente novamente.";
+            }
+        } catch (Exception $e) {
+            $errors[] = $e->getMessage(); // Captura exceções como email já cadastrado
         }
     }
 }
