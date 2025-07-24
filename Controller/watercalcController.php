@@ -1,44 +1,45 @@
 <?php
 
-session_start();
+namespace Controller;
 
-require_once '../vendor/autoload.php';
-use Controller\WatercalcController;
-use Controller\UserController;
+use Model\WaterCalc;
 
-// CRIANDO UM OBJETO PARA REPRESENTAR CADA IMC CRIADO
-$watercalcController = new WatercalcController();
-$userController = new UserController();
+use Exception;
 
-$waterResult = null;
-$userInfo = null;
+class watercalcController{
+    private $waterModel;
 
-// VERIFICANDO SE HOUVE LOGIN
-if(!$userController->isLoggedIn()){
-    header('Location: ../index.php');
-    exit();
-}
+    public function __construct(){
+        $this->waterModel = new WaterCalc();
+    }
 
-$user_id = $_SESSION['id'];
-$user_fullname = $_SESSION['user_fullname'];
-$email = $_SESSION['email'];
-
-$userInfo = $userController->getUserData($user_id, $user_fullname, $email);
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['weight'])) {
-        $weight = $_POST['weight'];
+    // CALCULO E CLASSIFICAÇÃO 
+    public function calculateWeight($weight){
+        try {
         
+            $result = [];
+            if (isset($weight)) {
+                if ($weight > 0) {
+                    $water = round($weight *35 / (1000), 2);
+                    $result['water'] = $water;
+                } else {
+                    $result= "O peso deve conter valores positivos.";
+                }
+            } else {
+                $result= "Por favor, informe o peso para obter o seu consumo diário de água.";
+            } 
+            return $result;
 
-        // UTILIZANDO O CONTROLER COMO INTERMEDIÁRIO DA MANIPULAÇÃO E GERENCIAMENTO DE DADOS FRONT/BACK(BANCO DE DADOS)
-        $waterResult = $watercalcController->calculateWeight($weight);
-
-        // VERIFICAR SE OS CAMPOS FORAM PREENCHIDOS
-        if ($waterResult['BMIrange'] != "O peso  deve conter valores positivos.") {
-            $watercalcController->save($weight, $waterResult['water']);
+        } catch (Exception $error) {
+            echo "Erro ao calcular o Consumo diário de água: " . $error->getMessage();
+            return false;
         }
     }
+
+
+    // PEGAR PESO E RESULTADO DO FRONT E ENVIAR PARA O BANCO DE DADOS
+    public function save($weight, $waterResult){
+        return $this->waterModel->tabWater($weight, $waterResult);
+    }
 }
-
-
 ?>

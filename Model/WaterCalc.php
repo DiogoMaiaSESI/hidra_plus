@@ -6,7 +6,7 @@ use PDO;
 use PDOException;
 use Model\Connection;
 
-class waterCalc {
+class WaterCalc {
     private $db; 
 
     public function __construct() {
