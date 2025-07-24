@@ -1,18 +1,19 @@
 {
-    "name": "fred/hidra",
-    "description": "Site de consumo diário de água",
+    "name": "diogo/hidra_plus",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Fred\\Hidra\\": "src/"
-        }
+            "Diogo\\HidraPlus\\": "hidra_plus/",
+            "Controller\\": "Controller/",
+            "Model\\": "Model/"
+        },
+        "files": [
+            "Config/configuration.php"
+        ]
     },
-    "authors": [
-        {
-            "name": "JanisaroBRR",
-            "email": "fredalefsr@gmail.com"
-        }
-    ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "php": ">=8.0",
+        "ext-mbstring": "*"
+    }
 }
