@@ -7,6 +7,18 @@ $userController = new UserController();
 $waterController = new watercalcController();
 $userWaterInfo = $waterController->getUserWater();
 $userWaterInfoLastWeek = $waterController->getUserWaterLastWeek();
+
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $user_fullname = $_SESSION['user_fullname'];
+    $email = $_SESSION['user_email'];
+
+    // BUSCANDO INFORMAÇÕES DO USUÁRIO
+    $userInfo = $userController->getUserInfo($user_id, $user_fullname, $email);
+} else {
+    header('Location: ../index.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,8 +39,8 @@ $userWaterInfoLastWeek = $waterController->getUserWaterLastWeek();
                 <img src="../templates/assets/img/Perfil.png" alt="Ícone do Usuário" class="user-icon">
                 
                 <div class="user-details">
-                    <span class="user-name">Nome</span>
-                    <span class="user-email">email@example.com</span>
+                    <span class="user-name"><?php echo htmlspecialchars($user_fullname); ?></span>
+                    <span class="user-email"><?php echo htmlspecialchars($email); ?></span>
                 </div>
             </div>
             <div class="logo-container">

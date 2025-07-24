@@ -3,13 +3,14 @@ session_start();
 
 require_once '../vendor/autoload.php';
 use Controller\WatercalcController;
-// use Controller\UserController;
+use Controller\UserController;
 
 $watercalcController = new WatercalcController();
-// $userController = new UserController();
+$userController = new UserController();
 
 $waterResult = null;
 $userInfo = null;
+
 
 // VERIFICANDO SE HOUVE LOGIN
 // if(!$userController->isLoggedIn()){
@@ -37,6 +38,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $user_fullname = $_SESSION['user_fullname'];
+    $email = $_SESSION['user_email'];
+
+    // BUSCANDO INFORMAÇÕES DO USUÁRIO
+    $userInfo = $userController->getUserInfo($user_id, $user_fullname, $email);
+} else {
+    header('Location: ../index.php');
+    exit();
+}
 
 ?>
 
@@ -54,8 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="user-info">
                     <img src="../templates/assets/img/Perfil.png" alt="Ícone do Usuário" class="user-icon">
                     <div class="user-details">
-                        <span class="user-name">Nome</span>
-                        <span class="user-email">email@example.com</span>
+                        <span class="user-name"><?php echo htmlspecialchars($user_fullname); ?></span>
+                        <span class="user-email"><?php echo htmlspecialchars($email); ?></span>
                     </div>
                 </div>
                 <div class="logo-container">
