@@ -1,82 +1,89 @@
 <?php
-session_start();
-require_once '../Controller/UserController.php';
+
+use Controller\UserController;
+
+require_once __DIR__ . "/../Config/configuration.php";
+require_once __DIR__ . "/../Controller/UserController.php";
 
 $userController = new UserController();
 $errors = [];
-$success = '';
+$success = "";
 
-// Processa o formulário quando enviado via POST
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $fullname = $_POST['name'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $password = $_POST['password'] ?? '';
-    $confirmPassword = $_POST['confirm_password'] ?? '';
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $user_fullname = $_POST["nome"] ?? "";
+    $email = $_POST["email"] ?? "";
+    $password = $_POST["senha"] ?? "";
+    $confirm_password = $_POST["confirmar_senha"] ?? "";
 
-    $result = $userController->register($fullname, $email, $password, $confirmPassword);
-
-    if ($result['success']) {
-        $success = $result['message'];
-        // Opcional: redirecionar para página de login após sucesso
-        // header('Location: login.php');
-        // exit;
+    // Validação básica (pode ser expandida no UserController)
+    if (empty($user_fullname) || empty($email) || empty($password) || empty($confirm_password)) {
+        $errors[] = "Todos os campos são obrigatórios.";
+    } elseif ($password !== $confirm_password) {
+        $errors[] = "As senhas não coincidem.";
     } else {
-        $errors = $result['errors'];
+        $result = $userController->createUser($user_fullname, $email, $password);
+
+        if ($result) {
+            $success = "Usuário cadastrado com sucesso!";
+            // Redirecionar ou exibir mensagem de sucesso
+        } else {
+            $errors[] = "Erro ao cadastrar usuário. Tente novamente.";
+        }
     }
-    
 }
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>HIDRA+ / Register</title>
+        <title>HIDRA+ / Cadastro</title>
         <link rel="stylesheet" href="../templates/assets/css/register.css">
     </head>
     <body>
-        <div class="grayline"></div>
-        <figure class="logo">
-            <img src="../templates/assets/img/logoHidraPlus.png" alt="Logo for HIDRA Plus featuring stylized blue water droplets arranged in a circular pattern with the text HIDRA Plus below in bold modern font on a white background, conveying a fresh and welcoming atmosphere">
+        <div class="linha-cinza"></div>
+        <figure class="logotipo">
+            <img src="../templates/assets/img/logoHidraPlus.png" alt="Logo para HIDRA Plus com gotas de água estilizadas em azul dispostas em um padrão circular com o texto HIDRA Plus abaixo em fonte moderna e negrito em um fundo branco, transmitindo uma atmosfera fresca e acolhedora">
         </figure>
-        <div class="container">
-            <div class="info">
+        <div class="conteudo-principal">
+            <div class="informacoes">
                 <h1>HIDRA+</h1>
-                <div class="line"></div>
-                <h2 class="infoText">Junte-se a quem não esquece da água</h2>
-                <figure class="stars">
-                    <img src="../templates/assets/img/stars.png" alt="Five yellow stars evenly spaced in a row on a transparent background, representing a five star rating, conveying a positive and welcoming tone">
+                <div class="linha"></div>
+                <h2 class="texto-informacoes">Junte-se a quem não esquece da água</h2>
+                <figure class="estrelas">
+                    <img src="../templates/assets/img/stars.png" alt="Cinco estrelas amarelas espaçadas uniformemente em uma linha em um fundo transparente, representando uma classificação de cinco estrelas, transmitindo um tom positivo e acolhedor">
                 </figure>                 
             </div>
-            <form>
-                <h2 class="formTitle">CADASTRO</h2>
-                <div class="groupLabel">
-                    <label for="name">Nome</label>
-                    <input type="text" id="name" name="name" required>
+            <form method="POST">
+                <h2 class="titulo-formulario">CADASTRO</h2>
+                <div class="grupo-campo">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required>
                 </div>
-                <div class="groupLabel">
+                <div class="grupo-campo">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
                 </div>
-                <div class="groupLabel">
-                    <label for="password">Senha</label>
-                    <input type="password" id="password" name="password" required>
+                <div class="grupo-campo">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" required>
                 </div>
-                <div class="groupLabel">
-                    <label for="confirm_password">Confirmar Senha</label>
-                    <input type="password" id="confirm_password" name="confirm_password" required>
+                <div class="grupo-campo">
+                    <label for="confirmar_senha">Confirmar Senha</label>
+                    <input type="password" id="confirmar_senha" name="confirmar_senha" required>
                 </div>
                 <button type="submit">Cadastrar</button>
                 <?php if (!empty($errors)): ?>
-                    <div class="error-messages">
+                    <div class="mensagens-erro">
                         <?php foreach ($errors as $error): ?>
                             <p><?php echo $error; ?></p>
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
                 <?php if (!empty($success)): ?>
-                    <div class="success-message">
+                    <div class="mensagem-sucesso">
                         <p><?php echo $success; ?></p>
                     </div>
                 <?php endif; ?>

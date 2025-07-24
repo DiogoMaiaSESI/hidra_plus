@@ -9,7 +9,8 @@ body {
     align-items: center;
     height: 100vh;
 }
-.grayline {
+
+.linha-cinza {
     width: 7.8rem;
     height: 100vh;
     background-color: var(--gray_background);
@@ -18,7 +19,8 @@ body {
     left: 0;
     z-index: -1;
 }
-.logo{
+
+.logotipo {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -26,43 +28,51 @@ body {
     top: 1.1rem;
     right: 3.5rem;
 }
-.logo img{
-    width: 20rem;
-    height: 20rem;
+
+.logotipo img {
+    width: 20.0rem;
+    height: 20.0rem;
     right: 0;
     top: 0;
 }
-.container {
+
+.conteudo-principal {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: space-between;
     width: 115.5rem;
 }
-.info {
+
+.informacoes {
     width: 38.7rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.line{
-    width: 34rem;
+
+.linha {
+    width: 34.0rem;
     height: 0.3rem;
     background-color: var(--white);
     margin-bottom: 4.4rem;
 }
-h1{
-    font-size: 7rem;
+
+h1 {
+    font-size: 7.0rem;
     font-weight: normal;
 }
-.infoText {
-    font-size: 4rem;
+
+.texto-informacoes {
+    font-size: 4.0rem;
     text-align: justify;
     margin-bottom: 15.2rem;
     font-weight: 500;
 }
-.stars img {
+
+.estrelas img {
     width: 32.9rem;
 }
+
 form {
     background-color: var(--lightblue2);
     border-radius: 1.5rem;
@@ -71,23 +81,27 @@ form {
     flex-direction: column;
     align-items: center;
 }
-.groupLabel {
+
+.grupo-campo {
     display: flex;
     flex-direction: column;
     align-items: baseline;
     margin-bottom: 3.8rem;
 }
-.formTitle {
+
+.titulo-formulario {
     font-size: 3.6rem;
     color: var(--black);
     font-weight: 600;
     margin-top: 2.7rem;
 }
+
 form label {
     font-size: 2.4rem;
     color: var(--black);
     font-weight: 600;
 }
+
 form input {
     width: 50.3rem;
     height: 6.5rem;
@@ -95,6 +109,7 @@ form input {
     border-style: none;
     border-radius: 1.5rem;
 }
+
 form button {
     font-size: 2.4rem;
     color: var(--black);
@@ -105,11 +120,27 @@ form button {
     border-style: none;
     font-weight: 600;
 }
-form p{
+
+form p {
     color: var(--black);
     margin-top: 1.2rem;
 }
+
 form p, form a {
-    font-size: 2rem;
+    font-size: 2.0rem;
     font-weight: 600;
+}
+
+.mensagens-erro {
+    color: red;
+    margin-top: 1.0rem;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.mensagem-sucesso {
+    color: green;
+    margin-top: 1.0rem;
+    font-size: 1.6rem;
+    text-align: center;
 }
