@@ -41,5 +41,11 @@ class watercalcController{
     public function save($weight, $waterResult){
         return $this->waterModel->tabWater($weight, $waterResult);
     }
+    public function getUserWater() {
+        return $this->waterModel->getWater();
+    }
+    public function getUserWaterLastWeek() {
+        return $this->waterModel->getWaterLastWeek();
+    }
 }
 ?>

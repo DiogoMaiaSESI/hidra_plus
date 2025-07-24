@@ -1,5 +1,12 @@
 <?php
-
+session_start();
+require_once '../vendor/autoload.php';
+use Controller\UserController;
+use Controller\watercalcController;
+$userController = new UserController();
+$waterController = new watercalcController();
+$userWaterInfo = $waterController->getUserWater();
+$userWaterInfoLastWeek = $waterController->getUserWaterLastWeek();
 ?>
 
 <!DOCTYPE html>
@@ -13,11 +20,11 @@
 </head>
 
 <body>
-    <figure><img src="../templates/Linha_Lateral.png" alt="" class="Linha"></figure>
+    <figure><img src="../templates/assets/img/Linha_Lateral.png" alt="" class="Linha"></figure>
     <div class="dashboard-container">
         <header class="main-header">
             <div class="user-info">
-                <img src="../templates/Perfil.png" alt="Ícone do Usuário" class="user-icon">
+                <img src="../templates/assets/img/Perfil.png" alt="Ícone do Usuário" class="user-icon">
                 
                 <div class="user-details">
                     <span class="user-name">Nome</span>
@@ -25,7 +32,7 @@
                 </div>
             </div>
             <div class="logo-container">
-                <img src="../templates/Logo_Hidra.png" alt="Logo Hidra+" class="logo-image">
+                <img src="../templates/assets/img/Logo_Hidra.png" alt="Logo Hidra+" class="logo-image">
                 
             </div>
         </header>
@@ -39,7 +46,9 @@
 
 
                 <section class="progress-card">
-                    <h2>Meta diária: xx Litros</h2>
+                    <h2>Meta diária: <?php
+                        echo $userWaterInfo;
+                    ?> Litros</h2>
                     <div class="status-section">
                         <span class="status-label">Status:</span>
                         <div class="status-buttons">
@@ -51,7 +60,9 @@
                 </section>
 
                 <section class="progress-card">
-                    <h2>Meta Semanal atual: xx Litros</h2>
+                    <h2>Meta Semanal atual: <?php
+                        echo $userWaterInfo*7;
+                    ?> Litros</h2>
                     <div class="status-section">
                         <span class="status-label">Status:</span>
                         <div class="status-buttons">
@@ -62,7 +73,9 @@
                     </div>
                 </section>
                 <section class="progress-card">
-                    <h2>Meta Semanal atual Anterior: xx Litros</h2>
+                    <h2>Meta Semanal atual Anterior: <?php
+                        echo $userWaterInfoLastWeek;
+                    ?> Litros</h2>
                     <div class="status-section">
                         <span class="status-label">Status:</span>
                         <div class="status-buttons">

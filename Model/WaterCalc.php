@@ -7,7 +7,7 @@ use PDOException;
 use Model\Connection;
 
 class WaterCalc {
-    private $db; 
+    private $db;
 
     public function __construct() {
         $this->db = Connection::getInstance();
@@ -29,6 +29,28 @@ class WaterCalc {
 
         catch(PDOException $error) {
             echo "Erro : " . $error->getMessage();
+            return false;
+        }
+    }
+    public function getWater(){
+        try{
+            $sql = "SELECT result FROM watercalc ORDER BY id DESC LIMIT 1";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchColumn();
+        } catch (PDOException $error) {
+            echo "Erro ao acessar o banco de dados: ".$error;
+            return false;
+        }
+    }
+    public function getWaterLastWeek(){
+        try{
+            $sql = "SELECT result FROM watercalc ORDER BY id DESC LIMIT 1 OFFSET 1";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchColumn();
+        } catch (PDOException $error) {
+            echo "Erro ao acessar o banco de dados: ".$error;
             return false;
         }
     }
