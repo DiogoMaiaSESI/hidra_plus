@@ -8,17 +8,47 @@ $waterController = new watercalcController();
 $userWaterInfo = $waterController->getUserWater();
 $userWaterInfoLastWeek = $waterController->getUserWaterLastWeek();
 
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-    $user_fullname = $_SESSION['user_fullname'];
-    $email = $_SESSION['user_email'];
+$userInfo = null;
 
-    // BUSCANDO INFORMAÇÕES DO USUÁRIO
-    $userInfo = $userController->getUserInfo($user_id, $user_fullname, $email);
+if (isset($_GET["id"])) {
+    $user_id_from_get = $_GET["id"];
+    
+    // Busca as informações do usuário usando o novo método getUserById
+    $userInfo = $userController->getUserById($user_id_from_get);
+
+    // Se o usuário não for encontrado ou o ID da sessão não corresponder (segurança)
+    if (!$userInfo || (isset($_SESSION["user_id"]) && $_SESSION["user_id"] != $user_id_from_get)) {
+        // Redireciona para a página de login se o ID não for válido ou não corresponder à sessão
+        header("Location: ../index.php");
+        exit();
+    }
+
+    // Atualiza as variáveis de sessão com os dados obtidos via GET para manter o contexto
+    $_SESSION["user_id"] = $userInfo["id"];
+    $_SESSION["user_fullname"] = $userInfo["user_fullname"];
+    $_SESSION["user_email"] = $userInfo["email"];
+
+} else if (isset($_SESSION["user_id"])) {
+    // Se não houver ID na URL, mas houver na sessão, usa os dados da sessão
+    $user_id_from_session = $_SESSION["user_id"];
+    $userInfo = $userController->getUserById($user_id_from_session);
+
+    if (!$userInfo) {
+        // Se o usuário da sessão não for encontrado no BD, destrói a sessão e redireciona
+        session_destroy();
+        header("Location: ../index.php");
+        exit();
+    }
 } else {
-    header('Location: ../index.php');
+    // Se não houver ID na URL nem na sessão, redireciona para o login
+    header("Location: ../index.php");
     exit();
 }
+
+// Define as variáveis para exibição no HTML
+$user_fullname = $userInfo["user_fullname"] ?? "";
+$email = $userInfo["email"] ?? "";
+
 ?>
 
 <!DOCTYPE html>

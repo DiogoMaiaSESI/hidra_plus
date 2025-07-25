@@ -82,6 +82,19 @@ class User
             throw new Exception("Erro ao buscar usuário por email: " . $error->getMessage());
         }
     }
+    public function getUserById($id)
+    {
+        try {
+            $sql = "SELECT id, user_fullname, email FROM user WHERE id = :id LIMIT 1";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $error) {
+            throw new Exception("Erro ao obter informações do usuário por ID: " . $error->getMessage());
+        }
+    }
 
     // OBTER INFORMAÇÕES DO USUÁRIO (mantido, mas pode ser ajustado conforme necessidade)
     public function getUserInfo($id, $user_fullname, $email)

@@ -37,6 +37,11 @@ class UserController
 
         return $this->userModel->loginUser($email, $password);
     }
+    public function getUserById($id)
+    {
+        return $this->userModel->getUserById($id);
+    }
+
     public function getUserInfo($id, $user_fullname, $email)
     {
         return $this->userModel->getUserInfo($id, $user_fullname, $email);
