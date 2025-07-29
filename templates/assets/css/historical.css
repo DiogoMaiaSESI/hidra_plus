@@ -87,6 +87,25 @@ header {
     font-size: 2.0rem;
     color: #b0b0b0; 
 }
+.nav-button {
+    padding: 0.8rem 1.6rem;
+    border-radius: 0.8rem;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1.6rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    border: 0.2rem solid transparent;
+    white-space: nowrap; 
+}
+
+.back-button {
+    background-color: #3498db;
+}
+
+.back-button:hover {
+    background-color: #2980b9; 
+}
 
 .logo-image {
     width: 10.0rem; 

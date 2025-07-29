@@ -85,6 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <span class="user-name"><?php echo htmlspecialchars($user_fullname); ?></span>
                         <span class="user-email"><?php echo htmlspecialchars($email); ?></span>
                     </div>
+                    <a href="../index.php" class="nav-button exit-button">Sair</a>
                 </div>
                 <div class="logo-container">
                     <img src="../templates/assets/img/Logo_Hidra.png" alt="Logo Hidra+" class="logo-image">

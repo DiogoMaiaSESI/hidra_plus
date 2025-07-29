@@ -72,6 +72,7 @@ $email = $userInfo["email"] ?? "";
                     <span class="user-name"><?php echo htmlspecialchars($user_fullname); ?></span>
                     <span class="user-email"><?php echo htmlspecialchars($email); ?></span>
                 </div>
+                <a href="../View/diaryCalc.php" class="nav-button back-button">Voltar</a>
             </div>
             <div class="logo-container">
                 <img src="../templates/assets/img/Logo_Hidra.png" alt="Logo Hidra+" class="logo-image">
