@@ -88,6 +88,7 @@ header {
     color: #b0b0b0; 
 }
 .nav-button {
+    display: flex;
     padding: 0.8rem 1.6rem;
     border-radius: 0.8rem;
     text-decoration: none;
@@ -97,6 +98,12 @@ header {
     transition: background-color 0.3s ease;
     border: 0.2rem solid transparent;
     white-space: nowrap; 
+    height: 2.3rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1.0rem;
+    margin-top: 1.7rem;
+    width: 7.0rem;
 }
 
 .back-button {
@@ -133,7 +140,7 @@ header {
 .title-section h1::after {
     content: '';
     display: block;
-    width: 45.0rem;
+    width: 40.0rem;
     height: 2px;
     background-color: #FFFFFF;
     margin: 10px auto 0;

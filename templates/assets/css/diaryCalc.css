@@ -57,7 +57,8 @@ header {
     font-weight: 500; 
 }
 .nav-button {
-    padding: 0.8rem 1.6rem;
+    display: flex;
+    padding: 1.0rem 1.0rem;
     border-radius: 0.8rem;
     text-decoration: none;
     color: var(--white);
@@ -65,6 +66,11 @@ header {
     font-weight: 500;
     transition: background-color 0.3s ease;
     border: 0.2rem solid transparent;
+    height: 3.0rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2.0rem;
+    margin-top: 3.5rem;
 }
 
 .exit-button {
@@ -210,7 +216,7 @@ header {
     display: flex;
     justify-content: center;
     width: 54.9rem;
-    height: 19rem;
+    height: 22.0rem;
     background-color: #38D1F7;
     border-radius: 1.0rem;
 }
