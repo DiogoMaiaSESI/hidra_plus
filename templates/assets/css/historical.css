@@ -196,7 +196,22 @@ header {
     transition: background-color 0.3s ease;
     
 }
-
+.status-btn.active {
+    /* Cor padrão se quiser */
+    background-color: #7a1fcf !important;
+    color: #fff;
+}
+/* Específico para cada grupo */
+#btnstatus1.active, #btnstatus4.active, #btnstatus7.active {
+    background-color: green !important;
+}
+#btnstatus2.active, #btnstatus5.active, #btnstatus8.active {
+    background-color: red !important;
+}
+#btnstatus3.active, #btnstatus6.active, #btnstatus9.active {
+    background-color: darkgoldenrod !important;
+}
+   
 .status-btn:hover {
     background-color: #7a1fcf; 
 }

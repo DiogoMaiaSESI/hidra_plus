@@ -8,50 +8,24 @@ const botao7 = document.getElementById('btnstatus7');
 const botao8 = document.getElementById('btnstatus8');
 const botao9 = document.getElementById('btnstatus9');
 
-botao1.addEventListener('click',()=>{
-    botao1.style.backgroundColor = 'green';
-    botao2.style.backgroundColor = '#8A2BE2';
-    botao3.style.backgroundColor = '#8A2BE2';
-})
-botao2.addEventListener('click',()=>{
-    botao2.style.backgroundColor = 'red';
-    botao1.style.backgroundColor = '#8A2BE2';
-    botao3.style.backgroundColor = '#8A2BE2';
-})
-botao3.addEventListener('click',()=>{
-    botao3.style.backgroundColor = 'darkgoldenrod';
-    botao2.style.backgroundColor = '#8A2BE2';
-    botao1.style.backgroundColor = '#8A2BE2';
-})
+document.querySelectorAll('.status-buttons').forEach(function(group, groupIndex) {
+    // Recupera do localStorage o id do botão ativo deste grupo
+    const activeBtnId = localStorage.getItem('status-btn-active-' + groupIndex);
+    if (activeBtnId) {
+        const btn = group.querySelector('#' + activeBtnId);
+        if (btn) btn.classList.add('active');
+    }
 
-botao4.addEventListener('click',()=>{
-    botao4.style.backgroundColor = 'green';
-    botao5.style.backgroundColor = '#8A2BE2';
-    botao6.style.backgroundColor = '#8A2BE2';
-})
-botao5.addEventListener('click',()=>{
-    botao5.style.backgroundColor = 'red';
-    botao4.style.backgroundColor = '#8A2BE2';
-    botao6.style.backgroundColor = '#8A2BE2';
-})
-botao6.addEventListener('click',()=>{
-    botao6.style.backgroundColor = 'darkgoldenrod';
-    botao5.style.backgroundColor = '#8A2BE2';
-    botao4.style.backgroundColor = '#8A2BE2';
-})
-
-botao7.addEventListener('click',()=>{
-    botao7.style.backgroundColor = 'green';
-    botao8.style.backgroundColor = '#8A2BE2';
-    botao9.style.backgroundColor = '#8A2BE2';
-})
-botao8.addEventListener('click',()=>{
-    botao8.style.backgroundColor = 'red';
-    botao7.style.backgroundColor = '#8A2BE2';
-    botao9.style.backgroundColor = '#8A2BE2';
-})
-botao9.addEventListener('click',()=>{
-    botao9.style.backgroundColor = 'darkgoldenrod';
-    botao8.style.backgroundColor = '#8A2BE2';
-    botao7.style.backgroundColor = '#8A2BE2';
-})
+    group.querySelectorAll('.status-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            // Remove active de todos do grupo
+            group.querySelectorAll('.status-btn').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            // Adiciona active ao clicado
+            btn.classList.add('active');
+            // Salva no localStorage o id do botão ativo deste grupo
+            localStorage.setItem('status-btn-active-' + groupIndex, btn.id);
+        });
+    });
+});
