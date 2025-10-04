@@ -2,10 +2,10 @@
 session_start();
 
 require_once '../vendor/autoload.php';
-use Controller\WatercalcController;
+use Controller\watercalcController;
 use Controller\UserController;
 
-$watercalcController = new WatercalcController();
+$watercalcController = new watercalcController();
 $userController = new UserController();
 
 $waterResult = null;
