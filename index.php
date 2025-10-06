@@ -5,7 +5,7 @@ use Controller\UserController;
 require_once "Config/configuration.php";
 require_once "Controller/UserController.php";
 
-$userController = new UserController();
+$userController = new UserController($userModel);
 
 $errors = [];
 $success = "";

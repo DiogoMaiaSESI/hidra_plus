@@ -39,9 +39,12 @@ class User
             $stmt->bindParam(':user_fullname', $user_fullname, PDO::PARAM_STR);
             $stmt->bindParam(':email', $email, PDO::PARAM_STR);
             $stmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR); // Usar a senha criptografada
-
-            // EXECUTAR TUDO
-            return $stmt->execute();
+            if ($stmt->execute()) {
+                $userId = $this->db->lastInsertId();
+                return $this->getUserById($userId);
+            } else {
+                return false;
+            }
         } catch (PDOException $error) {
             // EXIBIR MENSAGEM DE ERRO COMPLETA E PARAR A EXECUÇÃO
             throw new Exception("Erro ao cadastrar usuário: " . $error->getMessage());
@@ -85,7 +88,7 @@ class User
     public function getUserById($id)
     {
         try {
-            $sql = "SELECT id, user_fullname, email FROM user WHERE id = :id LIMIT 1";
+            $sql = "SELECT id, user_fullname, email, password FROM user WHERE id = :id LIMIT 1";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
