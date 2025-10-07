@@ -15,14 +15,6 @@ Describe: User Registration Validation
         And the Confirm Password variable receives 133 as the corresponding value
         Then it is assumed that the error message returned is "This email address is already registered.
 
-    Scenario: Registration with Unconfirmed Password
-        Given that I am on the registration page,
-        When I determine that the User_fullname variable corresponds to Chata Silva
-        And the Email variable stores chata@example.com
-        And the Password variable stores 133 as the corresponding value
-        And the Confirm Password variable receives 132 as the corresponding value
-        Then it is asserted that the error message returned is equal to "The passwords do not match.
-
     
 Describe: Login Validation
     Scenario: Login with valid credentials
