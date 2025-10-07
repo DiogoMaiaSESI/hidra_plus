@@ -61,17 +61,5 @@ class WaterTest extends TestCase {
         $result = $this->watercalcController->save(55, $waterResult['water']);
         $this->assertTrue($result);
     }
-
-    // #[\PHPUnit\Framework\Attributes\Test]
-    // public function it_should_be_able_to_save_bmi() {
-    //     $imcResult = $this->imcController->calculateImc(68, 1.68);
-    //     $this->assertStringNotContainsString("Por favor, informe peso e altura para obter o seu IMC.", $imcResult["BMIrange"]);
-
-    //     $this->mockImcModel->expects($this->once())->method('createImc')->with($this->equalTo(68),$this->equalTo(1.68))->willReturn(true);
-
-    //     $result = $this->imcController->saveIMC(68, 1.68, $imcResult['imc']);
-
-    //     $this->assertTrue($result); 
-    // }
 }
 ?>
