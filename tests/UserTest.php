@@ -34,7 +34,8 @@ class UserTest extends TestCase {
             'email' => 'bia@example.com',
             'password' => password_hash('133',PASSWORD_DEFAULT)
         ]);
-        $this->expectExceptionMessage("Este email já está cadastrado.");
+        $this->mockUserModel->method('registerUser')->willThrowException(new \Exception('Este email já está cadastrado.'));
+        $this->expectExceptionMessage('Este email já está cadastrado.');
         $this->userController->createUser('Chata Mota', 'bia@example.com', '133');
     }
 
@@ -43,11 +44,28 @@ class UserTest extends TestCase {
 
     // }
 
-    // #[PHPUnit\Framework\Attributes\Test]
-    // public function it_should_be_able_to_login_with_valid_credentials () {
+    #[PHPUnit\Framework\Attributes\Test]
+    public function it_should_be_able_to_sign_in_with_valid_credentials () {
+        $this->mockUserModel->method('loginUser')->willReturn([
+            'id' => 1,
+            'user_fullname' => 'Bia Mota',
+            'email' => 'bia@example.com',
+            'password' => '133'
+        ]);
+        $expected = [
+            'id' => 1,
+            'user_fullname' => 'Bia Mota',
+            'email' => 'bia@example.com',
+            'password' => '133'
+        ];
+        $this->assertEquals($expected, $this->userController->loginUser('bia@example.com', '133'));
+    }
 
-    // }
-
+    #[PHPUnit\Framework\Attributes\Test]
+    public function it_shouldnt_be_able_to_login_with_invalid_credentials () {
+        $this->mockUserModel->method('loginUser')->willReturn(false);
+        $this->assertFalse($this->userController->loginUser('bia@example.com', '132'));
+    }
 }
 
 ?>

@@ -10,9 +10,9 @@ class watercalcController
 {
     private $waterModel;
 
-    public function __construct()
+    public function __construct(WaterCalc $waterModel)
     {
-        $this->waterModel = new WaterCalc();
+        $this->waterModel = $waterModel;
     }
 
     // CALCULO E CLASSIFICAÇÃO 
@@ -21,12 +21,11 @@ class watercalcController
         try {
             $result = [];
             if (!isset($weight) || $weight === "" || is_null($weight)) {
-                $result = "Por favor, informe o peso para obter o seu consumo diário de água.";
+                $result['water']  = "Por favor, informe o peso para obter o seu consumo diário de água.";
             } elseif ($weight > 0) {
-                $water = round($weight * 35 / 1000, 2);
-                $result['water'] = $water;
+               $result['water']  = round($weight * 35 / 1000, 2);
             } else {
-                $result = "O peso deve conter valores positivos.";
+                $result['water']  = "O peso deve conter valores positivos.";
             }
             return $result;
         } catch (Exception $error) {
