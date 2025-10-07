@@ -66,6 +66,49 @@ class UserTest extends TestCase {
         $this->mockUserModel->method('loginUser')->willReturn(false);
         $this->assertFalse($this->userController->loginUser('bia@example.com', '132'));
     }
+
+   
+    #[PHPUnit\Framework\Attributes\Test]
+    public function it_shouldnt_be_able_to_login_with_invalid_password() {
+        // Arrange:
+
+        $usuarioDoBanco = [
+            'id' => 1,
+            'user_fullname' => 'Bia Mota',
+            'email' => 'bia@example.com',
+            'password' => password_hash('133', PASSWORD_DEFAULT)
+        ];
+
+        $this->mockUserModel->method('loginUser')->willReturn($usuarioDoBanco);
+
+        // Act (Agir):
+
+        $resultadoLogin = $this->userController->loginUser('bia@example.com', '132');
+
+        // Assert (Verificar):
+
+        $this->assertFalse($resultadoLogin);
+    }
+     #[PHPUnit\Framework\Attributes\Test]
+    public function it_should_throw_an_exception_when_passwords_do_not_match()
+    {
+        // Arrange (Organizar):
+        $nome = 'Chata Silva';
+        $email = 'chata@example.com';
+        $senha = '133';
+        $confirmarSenha = '132'; // Senha de confirmação diferente
+
+
+        $this->mockUserModel->expects($this->never())->method('registerUser');
+
+        $this->expectException(\Exception::class);
+
+        $this->expectExceptionMessage('As senhas não coincidem.');
+
+
+        // O teste passará se a exceção esperada for lançada.
+        $this->userController->createUser($nome, $email, $senha, $confirmarSenha);
+    }
 }
 
 ?>
