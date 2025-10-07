@@ -39,11 +39,6 @@ class UserTest extends TestCase {
         $this->userController->createUser('Chata Mota', 'bia@example.com', '133');
     }
 
-    // #[PHPUnit\Framework\Attributes\Test]
-    // public function it_shouldnt_be_able_to_create_user_with_password_and_confirm_password_different () {
-
-    // }
-
     #[PHPUnit\Framework\Attributes\Test]
     public function it_should_be_able_to_sign_in_with_valid_credentials () {
         $this->mockUserModel->method('loginUser')->willReturn([
