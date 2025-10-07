@@ -5,7 +5,7 @@ use Controller\UserController;
 require_once __DIR__ . "/../Config/configuration.php";
 require_once __DIR__ . "/../Controller/UserController.php";
 
-$userController = new UserController($userModel);
+$userController = new UserController();
 
 $errors = [];
 $success = "";

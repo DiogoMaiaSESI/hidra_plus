@@ -10,9 +10,9 @@ class watercalcController
 {
     private $waterModel;
 
-    public function __construct(WaterCalc $waterModel)
+    public function __construct()
     {
-        $this->waterModel = $waterModel;
+        $this->waterModel = new WaterCalc();
     }
 
     // CALCULO E CLASSIFICAÇÃO 

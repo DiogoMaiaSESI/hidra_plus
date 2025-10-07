@@ -114,10 +114,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="Caixa_Inferior">
             <h2>Resultado<br><span><?php
             if (isset($waterResult)) {
-                if (is_array($waterResult) && isset($waterResult["water"])) {
+                if (is_array($waterResult) && ($waterResult['water'] != 'O peso deve conter valores positivos.' && $waterResult['water'] != 'Por favor, informe o peso para obter o seu consumo diário de água.')) {
                     echo "O consumo diário adequado de água é: " . $waterResult["water"] . " litros";
                 } else {
-                    echo $waterResult;
+                    echo $waterResult['water'];
                 }
             } else {
                 echo "Sem resultado";
