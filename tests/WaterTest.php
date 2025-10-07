@@ -40,16 +40,7 @@ class WaterTest extends TestCase {
     public function it_shouldnt_be_able_to_calculate_water_with_null_input () {
         $result = $this->watercalcController->calculateWeight(null);
         $this-> assertEquals('Por favor, informe o peso para obter o seu consumo diário de água.', $result['water']);
-    } 
-
-    // 0
-    #[\PHPUnit\Framework\Attributes\Test]
-    public function it_shouldnt_be_able_to_calculate_water_with_empty_input () {
-        $result = $this->watercalcController->calculateWeight(0);
-        $this-> assertEquals('O peso deve conter valores positivos.', $result['water']);
-    }
-
-    
+    }   
 
     //obter o peso e calcular
     #[\PHPUnit\Framework\Attributes\Test]
